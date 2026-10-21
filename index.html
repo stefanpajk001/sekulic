@@ -1,0 +1,1388 @@
+<!doctype html>
+<html lang="sr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Auto elektrika Sekulić – Kaluđerica | Dijagnostika i elektronika vozila</title>
+  <meta name="description" content="Auto elektrika i elektronika Sekulić, Janka Lisjaka 75, Kaluđerica. Dijagnostika kvarova, elektroinstalacija, alternatori, anlaseri i ugradnja opreme. Pon–pet 09–17. Tel. 064 574 5064.">
+  <!-- Kada sajt dobije svoj domen, ovde dodati: <link rel="canonical" href="https://DOMEN/"> -->
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sr_RS">
+  <meta property="og:title" content="Auto elektrika Sekulić – Kaluđerica">
+  <meta property="og:description" content="Dijagnostika kvarova i auto elektrika u Kaluđerici. Pozovite: 064 574 5064.">
+  <meta property="og:image" content="img/og-sekulic.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#0d0e10">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+/* ==========================================================
+   Auto elektrika Sekulić – stilovi
+   Tamna radionica, crvena iz loga, krupni naslovi
+   ========================================================== */
+
+/* ---------- Dizajn sistem ---------- */
+:root {
+  /* Boje */
+  --ink: #0d0e10;          /* osnovna pozadina */
+  --ink-2: #15171a;        /* trake i sekcije */
+  --ink-3: #1f2226;        /* polja i kartice */
+  --line: #2c3035;         /* tanke linije */
+  --text: #f0efec;
+  --muted: #a3a8ae;
+  --accent: #d8231c;       /* crvena iz loga – dugmad, akcenti */
+  --accent-hover: #b81b15;
+  --accent-ink: #ff4a3d;   /* crvena za tekst na tamnom */
+  --focus: #ffd34d;
+
+  /* Fontovi */
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  /* Tipografska skala */
+  --fs-1: 0.875rem;  /* 14 */
+  --fs-2: 1rem;      /* 16 */
+  --fs-3: 1.25rem;   /* 20 */
+  --fs-4: 1.75rem;   /* 28 */
+  --fs-5: 2.5rem;    /* 40 */
+  --fs-6: 4.5rem;    /* 72 */
+
+  /* Razmaci */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 16px;
+  --s-4: 24px;
+  --s-5: 32px;
+  --s-6: 48px;
+  --s-7: 64px;
+  --s-8: 96px;
+  --s-9: 128px;
+
+  --wrap: 1240px;
+  --measure: 65ch;
+  --radius: 4px;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+}
+
+/* ---------- Osnova ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--s-8); }
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--fs-2);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; height: auto; color: transparent; } /* opis slike (alt) se ne ispisuje ako slika ne stigne */
+figure { margin: 0; }
+h1, h2, h3 { margin: 0; font-family: var(--font-display); font-weight: 700; line-height: 1.1; text-wrap: balance; }
+p { margin: 0; max-width: var(--measure); }
+a { color: inherit; }
+.mono { font-family: var(--font-mono); }
+
+.wrap { width: 100%; max-width: var(--wrap); margin-inline: auto; padding-inline: var(--s-3); }
+@media (min-width: 768px) { .wrap { padding-inline: var(--s-5); } }
+
+.skip { position: absolute; left: var(--s-3); top: -100px; z-index: 100; background: var(--focus); color: var(--ink); padding: var(--s-2) var(--s-3); }
+.skip:focus { top: var(--s-3); }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+
+/* Mesto za podatke koji fale */
+.ph { font-family: var(--font-mono); color: var(--focus); }
+
+/* ---------- Elementi ---------- */
+.label {
+  font-family: var(--font-mono); font-size: var(--fs-1);
+  letter-spacing: .08em; text-transform: uppercase; color: var(--accent-ink);
+}
+
+.h2 { font-size: var(--fs-4); font-weight: 800; text-transform: uppercase; letter-spacing: .01em; }
+.h2 { width: fit-content; max-width: 100%; }
+/* crvena linija ispod celog naslova */
+.h2__rule { display: block; width: 100%; height: 3px; margin-top: var(--s-3); background: var(--accent); }
+@media (min-width: 768px) { .h2 { font-size: var(--fs-5); } }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 52px; padding: var(--s-3) var(--s-4);
+  background: var(--accent); color: #fff;
+  font-family: var(--font-body); font-weight: 600; font-size: var(--fs-2);
+  text-decoration: none; border: 1px solid var(--accent); border-radius: var(--radius); cursor: pointer;
+  transition: background-color .2s var(--ease), border-color .2s var(--ease), transform .2s var(--ease);
+}
+.btn:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.btn:active { transform: translateY(1px); }
+.btn--ghost { background: transparent; border-color: rgba(240, 239, 236, .35); }
+.btn--ghost:hover { background: rgba(240, 239, 236, .08); border-color: var(--text); }
+.btn--wide { width: auto; justify-content: center; gap: var(--s-3); padding-inline: var(--s-5); font-size: var(--fs-3); min-height: 60px; }
+/* Efekat dugmadi (kao u heroju): odsjaj na svake 4 s, strelica blago gura napred.
+   Dugme u navigaciji (.btn--cta) ga namerno nema. */
+.btn--fx { position: relative; overflow: hidden; isolation: isolate; gap: var(--s-3); transition: background-color .2s var(--ease), border-color .2s var(--ease), box-shadow .3s var(--ease), transform .2s var(--ease); }
+.btn--fx::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, .28) 50%, transparent 70%);
+  transform: translateX(-120%); animation: btn-shine 4s var(--ease) 1s infinite;
+}
+.btn--fx::after { content: "→"; font-family: var(--font-mono); transition: transform .25s var(--ease); animation: btn-nudge 4s var(--ease) 1s infinite; }
+.btn--fx:hover, .btn--fx:focus-visible { box-shadow: 0 0 0 4px rgba(216, 35, 28, .18), 0 10px 28px rgba(216, 35, 28, .35); transform: translateY(-2px); }
+.btn--fx:hover::after, .btn--fx:focus-visible::after { animation: none; transform: translateX(8px); }
+.btn--fx:active { transform: translateY(0) scale(.98); }
+@keyframes btn-shine { 0% { transform: translateX(-120%); } 30%, 100% { transform: translateX(120%); } }
+@keyframes btn-nudge { 0%, 30%, 100% { transform: none; } 15% { transform: translateX(6px); } }
+.btn--small { white-space: nowrap; min-height: 40px; padding: var(--s-2) var(--s-3); font-family: var(--font-mono); font-size: var(--fs-1); font-weight: 500; }
+
+.link-arrow {
+  display: inline-flex; align-items: center; gap: var(--s-2);
+  font-weight: 500; text-decoration: none;
+  border-bottom: 1px solid currentColor; padding-bottom: 2px;
+  transition: color .2s var(--ease), gap .2s var(--ease);
+}
+.link-arrow::after { content: "→"; font-family: var(--font-mono); }
+.link-arrow:hover { color: var(--accent-ink); gap: var(--s-3); }
+.link-arrow:active { opacity: .7; }
+
+.section { padding-block: var(--s-8); }
+.section--tight { padding-block: var(--s-6); }
+@media (min-width: 960px) { .section { padding-block: var(--s-9); } }
+
+.section__head { display: grid; gap: var(--s-4); margin-bottom: var(--s-6); }
+.section__note { color: var(--muted); }
+.section__note--lead { max-width: 62ch; line-height: 1.6; }
+.section__head--center { justify-items: center; text-align: center; }
+.section__head--center .h2__rule { margin-inline: auto; }
+@media (min-width: 960px) {
+  .section__head--split { grid-template-columns: 1fr 1fr; align-items: end; gap: var(--s-7); }
+  .section__head--split .section__note { justify-self: end; max-width: 42ch; }
+}
+
+/* ---------- Header ---------- */
+.header { position: sticky; top: 0; z-index: 50; background: rgba(13, 14, 16, .92); border-bottom: 1px solid var(--line); }
+.header__in { display: flex; align-items: center; justify-content: space-between; gap: var(--s-4); min-height: 64px; }
+.brand { display: grid; text-decoration: none; line-height: 1.1; }
+.brand__name { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: var(--fs-3); text-transform: uppercase; letter-spacing: .04em; }
+.brand__tag { margin: 0; font-family: var(--font-mono); font-size: 0.6875rem; color: var(--muted); letter-spacing: .04em; }
+.nav { display: none; }
+@media (min-width: 960px) {
+  .nav { display: flex; justify-content: center; gap: var(--s-4); }
+  /* logo levo, meni tačno u sredini, dugme desno */
+  .header__in { display: grid; grid-template-columns: 1fr auto 1fr; min-height: 72px; }
+  .header__in .btn--small { justify-self: end; }
+  .nav a { text-decoration: none; font-size: var(--fs-1); font-weight: 500; color: var(--muted); padding-block: var(--s-2); border-bottom: 1px solid transparent; transition: color .2s, border-color .2s; }
+  .nav a:hover { color: var(--text); border-color: var(--accent-ink); }
+}
+.header .btn--small { display: none; }
+
+/* Hamburger meni (telefon i tablet): tri crte prelaze u X, meni se spušta ispod zaglavlja */
+.burger {
+  position: relative; display: inline-grid; place-content: center; gap: 5px; width: 44px; height: 44px; padding: 0; margin-left: auto;
+  background: transparent; border: 1px solid var(--line); border-radius: var(--radius); cursor: pointer;
+}
+.burger span { display: block; width: 20px; height: 2px; background: var(--text); border-radius: 2px; transition: transform .3s var(--ease), opacity .2s var(--ease); }
+.burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.burger[aria-expanded="true"] { border-color: var(--accent); }
+.header .btn--small { margin-left: auto; }
+.header .btn--small + .burger { margin-left: 0; }
+.header .brand__tag { display: none; }
+.mnav {
+  position: absolute; left: 0; right: 0; top: 100%; display: grid; padding: var(--s-2) var(--s-4) var(--s-5);
+  background: var(--ink); border-bottom: 1px solid var(--line); box-shadow: 0 24px 48px rgba(0, 0, 0, .5);
+  max-height: calc(100vh - 64px); overflow-y: auto;
+  visibility: hidden; opacity: 0; transform: translateY(-8px); transition: opacity .25s var(--ease), transform .25s var(--ease), visibility 0s .25s;
+}
+.mnav.is-open { visibility: visible; opacity: 1; transform: none; transition: opacity .25s var(--ease), transform .25s var(--ease); }
+.mnav a {
+  display: flex; align-items: center; justify-content: space-between; padding: var(--s-3) 0; border-bottom: 1px solid var(--line);
+  font-family: var(--font-display); font-weight: 700; font-size: var(--fs-4); text-transform: uppercase; letter-spacing: .02em; color: var(--text); text-decoration: none;
+  opacity: 0; transform: translateX(-12px); transition: opacity .3s var(--ease), transform .3s var(--ease), color .2s;
+}
+.mnav a::after { content: "→"; font-family: var(--font-mono); font-size: var(--fs-2); color: var(--accent-ink); }
+.mnav.is-open a { opacity: 1; transform: none; transition-delay: calc(var(--i) * 40ms); }
+.mnav a:hover, .mnav a:focus-visible { color: var(--accent-ink); }
+@media (min-width: 960px) {
+  .burger, .mnav { display: none; }
+  .header .brand__tag { display: block; }
+}
+
+/* Dugme u zaglavlju: tamna pozadina se razliva preko crvene, strelica ulazi */
+.btn--cta {
+  position: relative; overflow: hidden; isolation: isolate; gap: var(--s-2);
+  font-family: var(--font-body); font-weight: 600; letter-spacing: .01em;
+  box-shadow: 0 0 0 0 rgba(216, 35, 28, 0);
+  transition: color .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease), transform .2s var(--ease);
+}
+.btn--cta::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: var(--ink); transform: scaleX(0); transform-origin: right;
+  transition: transform .35s var(--ease);
+}
+.btn--cta::after {
+  content: "→"; font-family: var(--font-mono);
+  max-width: 0; opacity: 0; transform: translateX(-8px);
+  transition: max-width .3s var(--ease), opacity .3s var(--ease), transform .3s var(--ease);
+}
+.btn--cta:hover, .btn--cta:focus-visible {
+  background: var(--accent); color: var(--text); border-color: var(--accent-ink);
+  box-shadow: 0 0 0 4px rgba(216, 35, 28, .18), 0 8px 24px rgba(216, 35, 28, .25);
+}
+.btn--cta:hover::before, .btn--cta:focus-visible::before { transform: scaleX(1); transform-origin: left; }
+.btn--cta:hover::after, .btn--cta:focus-visible::after { max-width: 1em; opacity: 1; transform: none; color: var(--accent-ink); }
+.btn--cta:active { transform: translateY(1px) scale(.98); }
+
+.btn__phone { width: 1.15em; height: 1.15em; fill: currentColor; flex: none; }
+@media (min-width: 600px) { .header .btn--small { display: inline-flex; } }
+@media (min-width: 960px) and (max-width: 1099px) { .nav { gap: var(--s-3); } }
+@media (min-width: 1200px) { .nav { gap: var(--s-5); } }
+.brand__tag { white-space: nowrap; }
+@media (min-width: 960px) and (max-width: 1199px) { .header .brand__tag { display: none; } }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; overflow: hidden; background: var(--ink); }
+.hero__media { position: relative; height: clamp(280px, 48vh, 420px); }
+.hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 45%; }
+.hero__media::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(13, 14, 16, .1) 40%, var(--ink) 100%);
+}
+.hero__in { position: relative; display: grid; gap: var(--s-4); margin-top: calc(var(--s-8) * -1); padding-bottom: var(--s-7); }
+.hero__in > * { min-width: 0; }
+.hero__title { display: grid; font-size: var(--fs-4); font-weight: 800; text-transform: uppercase; letter-spacing: -.01em; line-height: 1; }
+.hero__accent { color: var(--accent-ink); }
+@media (min-width: 420px) { .hero__title { font-size: var(--fs-5); } }
+.hero__lead { font-size: 1.125rem; line-height: 1.5; color: var(--muted); max-width: 40ch; }
+.hero__actions { display: flex; flex-wrap: wrap; gap: var(--s-3); margin-top: var(--s-2); }
+
+.status { display: flex; align-items: center; gap: var(--s-2); margin: 0; font-family: var(--font-body); font-weight: 500; font-size: var(--fs-2); line-height: 1.2; color: var(--muted); text-shadow: 0 1px 8px rgba(0, 0, 0, .6); }
+.status__dot { width: 10px; height: 10px; flex: none; border-radius: 50%; background: var(--muted); }
+.status.is-open .status__dot { background: #3fbf6a; box-shadow: 0 0 0 4px rgba(63, 191, 106, .18); }
+.status.is-open .status__text { color: var(--text); }
+
+@media (min-width: 960px) {
+  .hero { min-height: 680px; display: flex; align-items: center; }
+  .hero__media { position: absolute; inset: 0 0 0 38%; height: auto; }
+  .hero__media::after { background: linear-gradient(to right, var(--ink) 0%, rgba(13, 14, 16, .55) 35%, rgba(13, 14, 16, .15) 70%, rgba(13, 14, 16, .5) 100%); }
+  .hero__in { margin-top: 0; padding-block: var(--s-8); }
+  .hero__title { font-size: var(--fs-6); }
+}
+
+/* ---------- Ocena ---------- */
+.proof { border-block: 1px solid var(--line); background: var(--ink-2); }
+.proof__in { display: grid; gap: var(--s-3); padding-block: var(--s-5); align-items: center; }
+.proof__score { display: flex; align-items: baseline; gap: var(--s-2); }
+.proof__num { font-family: var(--font-display); font-weight: 800; font-size: var(--fs-5); color: var(--accent-ink); line-height: 1; }
+.proof__of { font-family: var(--font-mono); color: var(--muted); }
+.proof__text { color: var(--muted); }
+.proof__text strong { color: var(--text); font-weight: 600; }
+@media (min-width: 768px) { .proof__in { grid-template-columns: auto 1fr auto; gap: var(--s-6); } }
+
+/* ---------- Usluge ---------- */
+.services__feature { display: grid; gap: var(--s-4); }
+.svc { position: relative; display: grid; background: var(--ink-3); border-radius: var(--radius); overflow: hidden; }
+.svc img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; transition: transform .6s var(--ease); }
+.svc:hover img { transform: scale(1.03); }
+.svc img.img-left { object-position: 12% 55%; transform-origin: left center; }
+.svc img.img-right { object-position: 86% 50%; transform-origin: right center; }
+.svc__body { display: grid; gap: var(--s-2); padding: var(--s-4); align-content: center; }
+.svc__kicker { font-family: var(--font-mono); font-size: var(--fs-1); color: var(--accent-ink); }
+.svc h3 { font-size: var(--fs-3); }
+.svc p:not(.svc__kicker) { color: var(--muted); }
+
+.services__more { list-style: none; margin: var(--s-6) 0 0; padding: 0; display: grid; gap: 0; }
+.services__more li { display: grid; gap: var(--s-1); padding-block: var(--s-4); border-top: 1px solid var(--line); }
+.services__more li:last-child { border-bottom: 1px solid var(--line); }
+.services__more h3 { font-size: var(--fs-3); }
+.services__more p { color: var(--muted); }
+
+@media (min-width: 768px) {
+  .services__feature { grid-template-columns: 1fr 1fr; }
+  .svc--big { grid-column: 1 / -1; }
+}
+@media (min-width: 960px) {
+  .services__feature { grid-template-columns: 7fr 5fr; grid-template-rows: auto auto; }
+  .svc--big { grid-column: 1; grid-row: 1 / span 2; }
+  .svc--big picture { position: relative; min-height: 0; }
+  .svc--big { grid-template-rows: 1fr auto; }
+  .svc--big img { height: 100%; aspect-ratio: auto; object-position: 40% 30%; }
+  .svc--big .svc__body { padding: var(--s-5); }
+  .svc--big h3 { font-size: var(--fs-4); }
+  .svc:not(.svc--big) { grid-template-columns: 1fr 1fr; }
+  .svc:not(.svc--big) img { height: 100%; aspect-ratio: auto; min-height: 220px; }
+  .services__more { grid-template-columns: repeat(3, 1fr); column-gap: var(--s-5); }
+  .services__more li:last-child { border-bottom: 0; }
+  .services__more li { border-bottom: 0; }
+}
+
+/* ---------- Cene ---------- */
+.prices { background: var(--ink-2); }
+.prices__grid { display: grid; gap: var(--s-4); }
+.price-group { padding: var(--s-4); border: 1px solid var(--line); border-radius: var(--radius); background: var(--ink); }
+.price-group h3 { display: flex; align-items: center; gap: var(--s-2); font-size: var(--fs-2); font-family: var(--font-mono); font-weight: 500; text-transform: uppercase; letter-spacing: .06em; margin-bottom: var(--s-3); }
+.price-group h3::before { content: ""; width: 8px; height: 8px; background: var(--accent); }
+.price-group dl { margin: 0; }
+.price-group dl div { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s-3); padding-block: var(--s-3); border-top: 1px solid var(--line); }
+.price-group dt { color: var(--muted); }
+.price-group dd { margin: 0; white-space: nowrap; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.prices__cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--s-4); margin-top: var(--s-6); text-align: center; }
+.prices__cta p { color: var(--muted); }
+@media (min-width: 768px) { .prices__grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 960px) { .price-group { padding: var(--s-5); } }
+
+/* ---------- Radionica (traka sa slikom) ---------- */
+.band { position: relative; overflow: hidden; }
+.band__media { height: 320px; }
+.band__media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
+.band__in { display: grid; gap: var(--s-6); padding-block: var(--s-7); }
+.band__text { display: grid; gap: var(--s-4); }
+.band__text p { color: var(--muted); }
+.band__facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s-4); margin: 0; }
+.band__facts div { border-top: 3px solid var(--accent); padding-top: var(--s-3); }
+.band__facts dt { font-size: var(--fs-1); color: var(--muted); }
+.band__facts dd { margin: 0; font-family: var(--font-display); font-weight: 800; font-size: var(--fs-4); font-variant-numeric: tabular-nums; }
+@media (min-width: 960px) {
+  .band { min-height: 560px; display: flex; align-items: center; }
+  /* slika samo na levoj polovini, da ne bude razvučena i mutna */
+  .band { background: var(--ink); }
+  .band__media { position: absolute; inset: 0 0 0 50%; height: auto; }
+  .band__media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to left, rgba(13, 14, 16, 0) 55%, var(--ink) 100%); }
+  .band__in { position: relative; grid-template-columns: 1fr 1fr; }
+  .band__text, .band__facts, .rating { grid-column: 1; }
+  .band__text { padding-right: var(--s-6); }
+  .band__facts dd { font-size: var(--fs-5); }
+}
+
+/* Ocena sa zvezdicama u traci Radionica.
+   Animacija (klasa .is-play iz JS): broj izroni iz zamućenja,
+   zvezdice se pale jedna po jedna dok broj raste, na kraju odsjaj pređe preko njih. */
+.rating { position: relative; display: inline-flex; align-items: center; gap: var(--s-4); justify-self: start; margin-top: calc(-1 * var(--s-3)); text-decoration: none; color: var(--text); }
+.rating__num { font-family: var(--font-display); font-weight: 800; font-size: var(--fs-5); line-height: 1; font-variant-numeric: tabular-nums; min-width: 2.4ch; }
+@media (min-width: 960px) { .rating__num { font-size: var(--fs-6); } }
+.rating__side { display: grid; gap: var(--s-2); }
+.rating__stars { position: relative; display: inline-flex; gap: var(--s-1); line-height: 0; overflow: visible; }
+.rs { position: relative; width: 28px; height: 28px; flex: none; }
+.rs svg { position: absolute; inset: 0; width: 100%; height: 100%; fill: var(--line); }
+.rs .rs__on { fill: #f5b400; clip-path: inset(0 calc(100% - var(--f)) 0 0); filter: drop-shadow(0 0 0 rgba(245, 180, 0, 0)); }
+.rating__shine { position: absolute; inset: -4px 0; pointer-events: none; opacity: 0; background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, .55) 50%, transparent 65%); background-size: 250% 100%; mix-blend-mode: overlay; }
+.rating__text { font-size: var(--fs-1); color: var(--muted); }
+.rating__text strong { color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
+.rating:hover .rating__text strong { color: var(--accent-ink); }
+
+/* pre početka: broj i tekst skriveni, zvezdice umanjene */
+.rating.is-armed .rating__num { opacity: 0; filter: blur(8px); transform: translateY(12px); }
+.rating.is-armed .rs { opacity: 0; transform: scale(.4) rotate(-30deg); }
+.rating.is-armed .rating__text { opacity: 0; transform: translateY(8px); }
+.rating.is-play .rating__num { opacity: 1; filter: blur(0); transform: none; transition: opacity .6s var(--ease) .15s, filter .8s var(--ease) .15s, transform .8s var(--ease) .15s; }
+.rating.is-play .rs.is-lit { opacity: 1; transform: none; animation: rs-pop .55s cubic-bezier(.34, 1.56, .64, 1) forwards; }
+.rating.is-play .rs.is-lit .rs__on { animation: rs-glow 1s ease-out; }
+.rating.is-play .rating__text { opacity: 1; transform: none; transition: opacity .6s var(--ease) .5s, transform .6s var(--ease) .5s; }
+.rating.is-done .rating__shine { animation: rs-shine 1.1s var(--ease) .1s; }
+@keyframes rs-pop { 0% { opacity: 0; transform: scale(.4) rotate(-30deg); } 60% { opacity: 1; transform: scale(1.25) rotate(6deg); } 100% { opacity: 1; transform: none; } }
+@keyframes rs-glow { 0% { filter: drop-shadow(0 0 10px rgba(245, 180, 0, .9)); } 100% { filter: drop-shadow(0 0 0 rgba(245, 180, 0, 0)); } }
+@keyframes rs-shine { 0% { opacity: 1; background-position: 120% 0; } 100% { opacity: 1; background-position: -20% 0; } }
+
+/* prelaz mišem: talas preko zvezdica */
+@media (hover: hover) {
+  .rating.is-done:hover .rs { animation: rs-wave .5s var(--ease); }
+  .rating.is-done:hover .rs:nth-child(2) { animation-delay: .06s; }
+  .rating.is-done:hover .rs:nth-child(3) { animation-delay: .12s; }
+  .rating.is-done:hover .rs:nth-child(4) { animation-delay: .18s; }
+  .rating.is-done:hover .rs:nth-child(5) { animation-delay: .24s; }
+}
+@keyframes rs-wave { 50% { transform: translateY(-5px) scale(1.12); } }
+
+/* ---------- Galerija ---------- */
+/* Mreža različitih veličina, hover kao skener: crvena linija pređe preko slike */
+.gallery-sec { background: var(--ink); border-top: 1px solid var(--line); }
+.gallery-head { display: grid; gap: var(--s-4); margin-bottom: var(--s-6); }
+.gallery-head .section__head { margin-bottom: 0; }
+
+/* Velika slika levo, numerisana lista radova desno; slike se same smenjuju */
+.showcase { display: grid; gap: var(--s-4); }
+.sc-stage { position: relative; aspect-ratio: 4 / 3; max-width: 100%; overflow: hidden; border-radius: var(--radius); background: var(--ink-3); }
+.sc-slide { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity .8s var(--ease); }
+.sc-slide.is-active { opacity: 1; }
+.sc-slide img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); transition: transform 6s linear; }
+.sc-slide.is-active img { transform: scale(1); }
+.sc-stage::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to top, rgba(13, 14, 16, .85) 0%, rgba(13, 14, 16, 0) 40%), linear-gradient(to bottom, rgba(13, 14, 16, .55) 0%, rgba(13, 14, 16, 0) 22%);
+}
+.sc-hud { position: absolute; left: var(--s-4); right: var(--s-4); top: var(--s-4); z-index: 2; display: flex; align-items: center; gap: var(--s-3); }
+.sc-count { font-family: var(--font-display); font-weight: 800; font-size: var(--fs-4); line-height: 1; font-variant-numeric: tabular-nums; text-shadow: 0 2px 12px rgba(0, 0, 0, .5); }
+.sc-total { font-family: var(--font-mono); font-weight: 400; font-size: var(--fs-1); color: var(--muted); }
+.sc-progress { flex: 1; height: 2px; background: rgba(240, 239, 236, .25); overflow: hidden; }
+.sc-progress span { display: block; height: 100%; width: 100%; background: var(--accent-ink); transform-origin: left; transform: scaleX(0); }
+.sc-progress span.is-running { animation: sc-fill var(--sc-time, 6s) linear forwards; }
+.sc-stage:hover .sc-progress span, .sc-stage:focus-within .sc-progress span { animation-play-state: paused; }
+@keyframes sc-fill { to { transform: scaleX(1); } }
+.sc-zoom {
+  position: absolute; right: var(--s-4); bottom: var(--s-4); z-index: 2;
+  min-height: 40px; padding: var(--s-2) var(--s-3);
+  font: 500 var(--fs-1) var(--font-mono); color: var(--text);
+  background: rgba(13, 14, 16, .6); border: 1px solid rgba(240, 239, 236, .3); border-radius: 999px; cursor: zoom-in;
+  transition: background-color .2s var(--ease), border-color .2s var(--ease);
+}
+.sc-zoom:hover { background: var(--accent); border-color: var(--accent); }
+.sc-zoom:active { transform: translateY(1px); }
+
+/* Lista radova: samo sličice sa rednim brojem, bez teksta */
+.sc-list { list-style: none; margin: 0; padding: 0; display: flex; gap: var(--s-2); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: var(--s-2); }
+.sc-list li { flex: 0 0 28%; scroll-snap-align: start; min-width: 0; }
+.sc-item {
+  position: relative; display: block; width: 100%; aspect-ratio: 4 / 3; padding: 0; overflow: hidden;
+  background: var(--ink-2); border: 2px solid transparent; border-radius: var(--radius); cursor: pointer;
+  transition: border-color .25s var(--ease);
+}
+.sc-thumb { width: 100%; height: 100%; object-fit: cover; filter: grayscale(.7) brightness(.6); transition: filter .3s var(--ease), transform .5s var(--ease); }
+.sc-num {
+  position: absolute; left: var(--s-2); bottom: var(--s-1); font-family: var(--font-mono); font-size: var(--fs-1); color: var(--muted);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, .7); transition: color .25s var(--ease);
+}
+.sc-item:hover { border-color: var(--muted); }
+.sc-item:hover .sc-thumb { filter: none; transform: scale(1.05); }
+.sc-item.is-active { border-color: var(--accent); }
+.sc-item.is-active .sc-thumb { filter: none; }
+.sc-item.is-active .sc-num, .sc-item:hover .sc-num { color: var(--text); }
+
+@media (min-width: 960px) {
+  .showcase { grid-template-columns: 7fr 4fr; gap: var(--s-6); align-items: stretch; }
+  .sc-stage { aspect-ratio: auto; min-height: 560px; }
+  .sc-list { display: grid; grid-template-columns: 1fr 1fr; grid-auto-rows: 1fr; gap: var(--s-3); overflow: visible; padding: 0; }
+  .sc-list li { flex: none; }
+  .sc-item { aspect-ratio: auto; height: 100%; }
+}
+
+/* ---------- Uvećan prikaz (lightbox) ---------- */
+.lb {
+  width: 100%; max-width: 100%; height: 100%; max-height: 100%; margin: 0; padding: var(--s-6) var(--s-3);
+  border: 0; background: rgba(8, 9, 10, .96); color: var(--text);
+  display: none; place-items: center;
+}
+.lb[open] { display: grid; animation: lb-in .3s var(--ease); }
+.lb::backdrop { background: rgba(8, 9, 10, .8); }
+.lb__fig { display: grid; gap: var(--s-3); justify-items: center; max-width: min(1100px, 100%); }
+.lb__img { max-width: 100%; max-height: 78vh; width: auto; height: auto; border-radius: var(--radius); box-shadow: 0 24px 64px rgba(0, 0, 0, .6); }
+.lb__img.is-switching { animation: lb-swap .35s var(--ease); }
+.lb__cap { display: flex; gap: var(--s-3); align-items: baseline; font-size: var(--fs-1); color: var(--muted); }
+.lb__num { color: var(--accent-ink); }
+.lb__btn, .lb__close {
+  position: absolute; display: grid; place-items: center;
+  min-width: 48px; min-height: 48px; padding: 0 var(--s-3);
+  font: 500 var(--fs-2) var(--font-mono); color: var(--text);
+  background: rgba(31, 34, 38, .85); border: 1px solid var(--line); border-radius: 999px; cursor: pointer;
+  transition: background-color .2s var(--ease), border-color .2s var(--ease), transform .2s var(--ease);
+}
+.lb__btn:hover, .lb__close:hover { background: var(--accent); border-color: var(--accent); }
+.lb__btn:active, .lb__close:active { transform: scale(.95); }
+.lb__prev { left: var(--s-3); top: 50%; translate: 0 -50%; }
+.lb__next { right: var(--s-3); top: 50%; translate: 0 -50%; }
+.lb__close { top: var(--s-3); right: var(--s-3); font-size: var(--fs-1); }
+@media (max-width: 767px) {
+  .lb__prev, .lb__next { top: auto; bottom: var(--s-3); translate: none; }
+}
+@keyframes lb-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes lb-swap { from { opacity: .2; transform: scale(.98); } to { opacity: 1; transform: none; } }
+
+/* ---------- Pitanja ---------- */
+.faq { background: var(--ink-2); }
+.faq__list { border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary {
+  display: flex; justify-content: space-between; align-items: center; gap: var(--s-3);
+  padding-block: var(--s-4); cursor: pointer; list-style: none;
+  font-weight: 600; font-size: var(--fs-3); transition: color .2s var(--ease);
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-family: var(--font-mono); font-size: var(--fs-4); color: var(--accent-ink); line-height: 1; transition: transform .2s var(--ease); }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq summary:hover { color: var(--accent-ink); }
+.faq details p { padding-bottom: var(--s-4); color: var(--muted); }
+@media (min-width: 960px) {
+  .faq__grid { display: grid; grid-template-columns: 4fr 8fr; gap: var(--s-7); align-items: start; }
+  .faq .section__head { position: sticky; top: var(--s-8); }
+}
+
+/* ---------- Saveti ---------- */
+.tips__grid { display: grid; gap: var(--s-4); }
+.tip { display: grid; gap: var(--s-3); align-content: start; padding: var(--s-4); background: var(--ink-3); border-radius: var(--radius); border-top: 3px solid var(--accent); }
+.tip h3 { font-size: var(--fs-3); }
+.tip p { color: var(--muted); }
+.tip--photo { padding: 0; overflow: hidden; border-top: 0; }
+.tip--photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 60%; }
+.tip--photo .tip__body { display: grid; gap: var(--s-3); padding: var(--s-4); }
+@media (min-width: 768px) {
+  .tips__grid { grid-template-columns: 1fr 1fr; }
+  .tip--photo { grid-column: 1 / -1; grid-template-columns: 1fr 1fr; }
+  .tip--photo img { height: 100%; }
+  .tip--photo .tip__body { align-content: center; padding: var(--s-5); }
+}
+@media (min-width: 960px) {
+  .tips__grid { grid-template-columns: 5fr 7fr; }
+  .tip--photo { grid-column: 1; grid-row: 1 / span 3; grid-template-columns: 1fr; grid-template-rows: 1fr auto; }
+  .tip:not(.tip--photo) { grid-column: 2; grid-template-columns: 2fr 3fr; gap: var(--s-5); padding: var(--s-5); align-items: start; }
+  .tip--photo img { aspect-ratio: auto; min-height: 280px; }
+  .tip--photo h3 { font-size: var(--fs-4); }
+}
+
+/* ---------- Kontakt ---------- */
+.contact { border-top: 1px solid var(--line); }
+.contact__grid { display: grid; gap: var(--s-7); }
+.contact__info { display: grid; gap: var(--s-4); align-content: start; }
+.contact__phone {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: var(--fs-4); text-decoration: none; color: var(--text);
+  border-bottom: 3px solid var(--accent); justify-self: start; padding-bottom: var(--s-1);
+  transition: color .2s var(--ease);
+}
+.contact__phone:hover { color: var(--accent-ink); }
+.info { margin: 0; border-top: 1px solid var(--line); }
+.info div { display: flex; justify-content: space-between; gap: var(--s-3); padding-block: var(--s-3); border-bottom: 1px solid var(--line); }
+.info dt { color: var(--muted); }
+.info dd { margin: 0; text-align: right; }
+.contact__map iframe { display: block; width: 100%; height: 280px; border: 0; border-radius: var(--radius); filter: grayscale(.6) invert(.9) hue-rotate(180deg); }
+
+.form { display: grid; gap: var(--s-4); }
+.form__row { display: grid; gap: var(--s-4); }
+.field { display: grid; gap: var(--s-2); font-size: var(--fs-1); font-weight: 500; }
+.field small { font-weight: 400; color: var(--muted); }
+.field input, .field textarea {
+  width: 100%; padding: var(--s-3); font: inherit; font-size: var(--fs-2); font-weight: 400;
+  color: var(--text); background: var(--ink-3);
+  border: 1px solid var(--line); border-radius: var(--radius);
+  transition: border-color .2s var(--ease), background-color .2s var(--ease);
+}
+.field input::placeholder { color: #7d8288; }
+.field input:hover, .field textarea:hover { border-color: #4a5058; }
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--accent-ink); background: var(--ink-2); }
+.field textarea { resize: vertical; min-height: 140px; }
+.hp { position: absolute; left: -9999px; }
+.form__foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-4); }
+.form__msg { font-size: var(--fs-1); color: var(--muted); }
+.form__msg.is-ok { color: #6fd38f; }
+.form__msg.is-err { color: var(--accent-ink); }
+@media (min-width: 600px) { .form__row { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 960px) {
+  .contact__grid { grid-template-columns: 7fr 5fr; gap: var(--s-8); }
+  .contact__phone { font-size: var(--fs-5); }
+}
+
+/* ---------- Footer ---------- */
+.nowrap { white-space: nowrap; }
+.footer { position: relative; background: #08090a; border-top: 1px solid var(--line); padding-top: var(--s-7); padding-bottom: var(--s-9); font-size: var(--fs-1); color: var(--muted); }
+.footer__grid { display: grid; gap: var(--s-5); grid-template-columns: 1fr 1fr; }
+.footer__brand { grid-column: 1 / -1; }
+.footer__brand .brand__name { color: var(--text); }
+.footer__h { font-family: var(--font-mono); font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; color: var(--text); margin-bottom: var(--s-2); }
+.footer a { text-decoration: none; border-bottom: 1px solid var(--line); transition: color .2s, border-color .2s; }
+.footer a:hover { color: var(--text); border-color: var(--accent-ink); }
+.footer__base { margin-top: var(--s-6); }
+.footer__copy { max-width: none; padding-top: var(--s-4); border-top: 1px solid var(--line); }
+/* Potpis dizajnera: skroz u donjem desnom uglu (na telefonu iznad trake za poziv) */
+.footer__credit { position: absolute; right: var(--s-4); bottom: 76px; margin: 0; font-size: 0.75rem; line-height: 1; color: var(--muted); }
+@media (min-width: 768px) { .footer__credit { bottom: var(--s-3); } }
+@media (min-width: 960px) {
+  .footer { padding-bottom: var(--s-7); }
+  .footer__grid { grid-template-columns: 2fr 1fr 1fr 1fr 1fr; }
+  .footer__brand { grid-column: auto; }
+}
+
+/* ---------- Traka za poziv (mobilni) ---------- */
+.callbar {
+  overflow: hidden; isolation: isolate; gap: var(--s-3);
+  position: fixed; left: var(--s-3); right: var(--s-3); bottom: var(--s-3); z-index: 60;
+  display: flex; align-items: center; justify-content: center; min-height: 52px;
+  background: var(--accent); color: #fff; font-weight: 600; text-decoration: none;
+  border-radius: var(--radius); box-shadow: 0 8px 24px rgba(0, 0, 0, .45);
+}
+/* Isti efekat kao dugme u zaglavlju (tamna pozadina se razliva, strelica ulazi),
+   samo se na telefonu sam pušta na svakih 5 s jer nema prelaska mišem. */
+.callbar { gap: 0; border: 1px solid transparent; transition: border-color .3s var(--ease), box-shadow .3s var(--ease), transform .2s var(--ease); animation: cb-glow 5s var(--ease) 1s infinite; }
+.callbar::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: var(--ink); transform: scaleX(0); transform-origin: left;
+  animation: cb-fill 5s var(--ease) 1s infinite;
+}
+.callbar::after {
+  content: "→"; font-family: var(--font-mono); color: var(--accent-ink);
+  display: inline-block; overflow: hidden; max-width: 0; opacity: 0; transform: translateX(-8px);
+  animation: cb-arrow 5s var(--ease) 1s infinite;
+}
+.callbar:hover, .callbar:active, .callbar:focus-visible { animation: none; border-color: var(--accent-ink); box-shadow: 0 0 0 4px rgba(216, 35, 28, .18), 0 8px 24px rgba(216, 35, 28, .35); }
+.callbar:hover::before, .callbar:active::before, .callbar:focus-visible::before { animation: none; transform: scaleX(1); }
+.callbar:hover::after, .callbar:active::after, .callbar:focus-visible::after { animation: none; max-width: 1em; opacity: 1; transform: none; margin-left: var(--s-2); }
+.callbar:active { transform: scale(.98); }
+/* Traka se pojavljuje tek kad se skroluje do kontakt forme (klasu stavlja main.js) */
+.callbar.is-away { opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(calc(100% + var(--s-3))); }
+.callbar { transition: opacity .35s var(--ease), visibility .35s var(--ease), transform .35s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease); }
+@keyframes cb-fill { 0% { transform: scaleX(0); transform-origin: left; } 12%, 45% { transform: scaleX(1); transform-origin: left; } 46% { transform-origin: right; transform: scaleX(1); } 60%, 100% { transform: scaleX(0); transform-origin: right; } }
+@keyframes cb-arrow { 0%, 6% { max-width: 0; opacity: 0; transform: translateX(-8px); margin-left: 0; } 16%, 45% { max-width: 1em; opacity: 1; transform: none; margin-left: var(--s-2); } 58%, 100% { max-width: 0; opacity: 0; transform: translateX(-8px); margin-left: 0; } }
+@keyframes cb-glow { 0%, 60%, 100% { border-color: transparent; box-shadow: 0 8px 24px rgba(0, 0, 0, .45); } 12%, 45% { border-color: var(--accent-ink); box-shadow: 0 0 0 4px rgba(216, 35, 28, .18), 0 8px 24px rgba(216, 35, 28, .35); } }
+@media (min-width: 768px) { .callbar { display: none; } }
+
+/* ---------- Telefon: zbijeniji razmaci između sekcija ---------- */
+@media (max-width: 767px) {
+  .section { padding-block: var(--s-6); }
+  .hero__in { padding-bottom: var(--s-6); }
+  .band__in { padding-block: var(--s-6); gap: var(--s-5); }
+  .prices__cta { margin-top: var(--s-5); }
+  .gallery-head { margin-bottom: var(--s-5); }
+  .footer { padding-top: var(--s-6); }
+}
+
+/* ---------- Animacija pri skrolu ---------- */
+.reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+.reveal.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  * { transition-duration: 0s !important; }
+  *, *::before, *::after { animation: none !important; }
+}
+
+</style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRepair",
+    "name": "Auto elektrika i elektronika Sekulić",
+    "telephone": "+381645745064",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Janka Lisjaka 75",
+      "addressLocality": "Kaluđerica",
+      "addressRegion": "Beograd",
+      "addressCountry": "RS"
+    },
+    "openingHours": "Mo-Fr 09:00-17:00",
+    "sameAs": ["https://www.instagram.com/autoelektronikasekulic/"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#sadrzaj">Preskoči na sadržaj</a>
+
+  <header class="header">
+    <div class="wrap header__in">
+      <a class="brand" href="#top" aria-label="Sekulić – početak strane">
+        <span class="brand__name">Sekulić</span>
+      </a>
+      <nav class="nav" aria-label="Glavna navigacija">
+        <a href="#top">Početna</a>
+        <a href="#usluge">Usluge</a>
+        <a href="#cene">Cene</a>
+        <a href="#radionica">Radionica</a>
+        <a href="#galerija">Galerija</a>
+        <a href="#pitanja">Pitanja</a>
+        <a href="#saveti">Saveti</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      <a class="btn btn--small btn--cta" href="#kontakt"><span>Kontaktirajte nas</span></a>
+      <button class="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Otvori meni" data-burger><span></span><span></span><span></span></button>
+    </div>
+    <nav class="mnav" id="mnav" aria-label="Mobilna navigacija" data-mnav>
+        <a href="#top" style="--i:0">Početna</a>
+        <a href="#usluge" style="--i:1">Usluge</a>
+        <a href="#cene" style="--i:2">Cene</a>
+        <a href="#radionica" style="--i:3">Radionica</a>
+        <a href="#galerija" style="--i:4">Galerija</a>
+        <a href="#pitanja" style="--i:5">Pitanja</a>
+        <a href="#saveti" style="--i:6">Saveti</a>
+        <a href="#kontakt" style="--i:7">Kontakt</a>
+    </nav>
+  </header>
+
+  <main id="sadrzaj">
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero__media">
+        <!-- [SLIKA: zameniti originalom u punoj rezoluciji] -->
+        <picture>
+          <source type="image/webp" srcset="img/bentley-motor-640.webp 640w, img/bentley-motor-1200.webp 1200w" sizes="(min-width: 960px) 60vw, 100vw">
+          <img src="img/bentley-motor-1200.jpg" srcset="img/bentley-motor-640.jpg 640w, img/bentley-motor-1200.jpg 1200w" sizes="(min-width: 960px) 60vw, 100vw" width="1200" height="1511" alt="Crni Bentley sa podignutom haubom na dizalici u radionici" fetchpriority="high">
+        </picture>
+      </div>
+      <div class="wrap hero__in">
+        <p class="status" data-status>
+          <span class="status__dot" aria-hidden="true"></span>
+          <span class="status__text">Pon–pet 09:00–17:00</span>
+        </p>
+        <h1 class="hero__title">
+          <span>Precizna dijagnostika</span>
+          <span>i popravka svih</span>
+          <span class="hero__accent">elektronskih sistema</span>
+        </h1>
+        <p class="hero__lead">Lampica na tabli, auto koji neće da upali, akumulator koji se prazni preko noći. Pozovite, opišite problem i dogovorićemo termin.</p>
+        <div class="hero__actions">
+          <a class="btn btn--wide btn--fx" href="#cene">Pogledajte cenovnik</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- OCENA: privremeno skinuto po Stefanovom zahtevu, vraća se kad kaže gde.
+    <section class="proof" aria-label="Ocena na Googlu">
+      <div class="wrap proof__in">
+        <p class="proof__score"><span class="proof__num">4,9</span><span class="proof__of">/ 5</span></p>
+        <p class="proof__text">Prosečna ocena na Google mapama, iz <strong>166 recenzija</strong> vozača koji su bili kod nas.</p>
+        <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query=Auto+elektrika+Sekuli%C4%87+Janka+Lisjaka+75+Kalu%C4%91erica" target="_blank" rel="noopener">Pročitajte recenzije</a>
+      </div>
+    </section>
+    -->
+
+    <!-- USLUGE -->
+    <!-- NAPOMENA: lista usluga je predlog, nije potvrđena od vlasnika. Proveriti pre objave. -->
+    <section class="services section" id="usluge">
+      <div class="wrap">
+        <header class="section__head">
+          <h2 class="h2">Šta radimo<span class="h2__rule" aria-hidden="true"></span></h2>
+          <p class="section__note section__note--lead">Bavimo se svim što na automobilu radi na struju: od očitavanja grešaka i dijagnostike, preko elektroinstalacije i elektronike, do ugradnje dodatne opreme. Prvo pronađemo uzrok kvara, pa vam pre početka rada kažemo šta treba uraditi i koliko košta. Ako niste sigurni šta je kvar, pozovite i opišite šta auto radi.</p>
+        </header>
+
+        <div class="services__feature">
+          <article class="svc svc--big">
+            <picture>
+              <source type="image/webp" srcset="img/majstor-bmw-x7-640.webp 640w, img/majstor-bmw-x7-1200.webp 1200w" sizes="(min-width: 960px) 55vw, 100vw">
+              <img src="img/majstor-bmw-x7-1200.jpg" srcset="img/majstor-bmw-x7-640.jpg 640w, img/majstor-bmw-x7-1200.jpg 1200w" sizes="(min-width: 960px) 55vw, 100vw" width="1200" height="1218" alt="Majstor radi u motornom prostoru BMW-a X7" loading="lazy" decoding="async">
+            </picture>
+            <div class="svc__body">
+              <p class="svc__kicker">01</p>
+              <h3>Kompjuterska dijagnostika</h3>
+              <p>Očitavanje grešaka i traženje uzroka, ne samo brisanje lampice. Kad nađemo kvar, kažemo vam šta je i koliko košta pre popravke.</p>
+            </div>
+          </article>
+          <article class="svc">
+            <picture>
+              <source type="image/webp" srcset="img/maserati-motor-640.webp 640w, img/maserati-motor-1200.webp 1200w" sizes="(min-width: 960px) 35vw, 100vw">
+              <img src="img/maserati-motor-1200.jpg" srcset="img/maserati-motor-640.jpg 640w, img/maserati-motor-1200.jpg 1200w" sizes="(min-width: 960px) 35vw, 100vw" width="1200" height="1006" alt="Beli Maserati sa podignutom haubom" class="img-left" loading="lazy" decoding="async">
+            </picture>
+            <div class="svc__body">
+              <p class="svc__kicker">02</p>
+              <h3>Elektroinstalacija</h3>
+              <p>Prekidi, kratki spojevi, oštećeni kablovi i konektori, kvarovi koji dolaze i odlaze.</p>
+            </div>
+          </article>
+          <article class="svc">
+            <picture>
+              <source type="image/webp" srcset="img/ekran-naslon-2-640.webp 640w, img/ekran-naslon-2-1200.webp 1200w" sizes="(min-width: 960px) 35vw, 100vw">
+              <img class="img-right" src="img/ekran-naslon-2-1200.jpg" srcset="img/ekran-naslon-2-640.jpg 640w, img/ekran-naslon-2-1200.jpg 1200w" sizes="(min-width: 960px) 35vw, 100vw" width="1200" height="1009" alt="Ekran ugrađen u naslon prednjeg sedišta" loading="lazy" decoding="async">
+            </picture>
+            <div class="svc__body">
+              <p class="svc__kicker">03</p>
+              <h3>Ugradnja opreme</h3>
+              <p>Multimedija, ekrani, kamere i senzori, uklopljeni u postojeću instalaciju.</p>
+            </div>
+          </article>
+        </div>
+
+        <ul class="services__more">
+          <li><h3>Alternatori i anlaseri</h3><p>Provera, popravka i zamena kad auto teško pali ili akumulator ne puni.</p></li>
+          <li><h3>Akumulator i punjenje</h3><p>Merenje akumulatora i traženje potrošača koji ga prazni dok auto stoji.</p></li>
+          <li><h3>Komfor elektronika</h3><p>Podizači stakala, centralna brava, svetla, senzori i komande na volanu.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CENE -->
+    <!-- NAPOMENA: cene nisu poznate. Svako [cena] mesto popuniti podacima od vlasnika. -->
+    <section class="prices section" id="cene">
+      <div class="wrap">
+        <header class="section__head section__head--center">
+          <h2 class="h2">Cenovnik<span class="h2__rule" aria-hidden="true"></span></h2>
+          <p class="section__note">Okvirne cene. Tačnu cenu popravke znamo tek kad pronađemo kvar,<br>i dogovaramo je sa vama pre rada.</p>
+        </header>
+
+        <div class="prices__grid">
+          <div class="price-group">
+            <h3>Dijagnostika</h3>
+            <dl>
+              <div><dt>Kompjuterska dijagnostika</dt><dd class="ph">[cena]</dd></div>
+              <div><dt>Merenje akumulatora i punjenja</dt><dd class="ph">[cena]</dd></div>
+              <div><dt>Traženje potrošača struje</dt><dd class="ph">[cena]</dd></div>
+            </dl>
+          </div>
+          <div class="price-group">
+            <h3>Elektrika</h3>
+            <dl>
+              <div><dt>Popravka alternatora</dt><dd class="ph">[cena]</dd></div>
+              <div><dt>Popravka anlasera</dt><dd class="ph">[cena]</dd></div>
+              <div><dt>Popravka instalacije</dt><dd class="ph">[cena]</dd></div>
+            </dl>
+          </div>
+          <div class="price-group">
+            <h3>Ugradnja opreme</h3>
+            <dl>
+              <div><dt>Multimedija / ekran</dt><dd class="ph">[cena]</dd></div>
+              <div><dt>Kamera za vožnju unazad</dt><dd class="ph">[cena]</dd></div>
+              <div><dt>Senzori za parkiranje</dt><dd class="ph">[cena]</dd></div>
+            </dl>
+          </div>
+          <div class="price-group">
+            <h3>Komfor elektronika</h3>
+            <dl>
+              <div><dt>Podizač stakla</dt><dd class="ph">[cena]</dd></div>
+              <div><dt>Centralna brava</dt><dd class="ph">[cena]</dd></div>
+              <div><dt>Svetla</dt><dd class="ph">[cena]</dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <div class="prices__cta">
+          <p>Za cenu vašeg kvara najbrže je da pozovete.</p>
+          <a class="btn btn--fx" href="tel:+381645745064"><svg class="btn__phone" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>064 574 5064</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RADIONICA -->
+    <section class="band" id="radionica">
+      <div class="band__media">
+        <picture>
+          <source type="image/webp" srcset="img/tim-radionica-640.webp 640w, img/tim-radionica-1200.webp 1200w" sizes="100vw">
+          <img src="img/tim-radionica-1200.jpg" srcset="img/tim-radionica-640.jpg 640w, img/tim-radionica-1200.jpg 1200w" sizes="(min-width: 960px) 50vw, 100vw" width="1200" height="861" alt="Ekipa servisa Sekulić u radionici, ispred dva automobila" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="wrap band__in">
+        <div class="band__text">
+          <h2 class="h2">Radionica u Kaluđerici<span class="h2__rule" aria-hidden="true"></span></h2>
+          <p>Na adresi Janka Lisjaka 75 u Kaluđerici radi naša ekipa, u radionici opremljenoj za dijagnostiku i popravku auto elektrike i elektronike. Svako vozilo koje uđe kod nas dobija istu pažnju. Šta kažu vozači koji su već bili kod nas, pogledajte u ocenama ispod.</p>
+          <a class="link-arrow" href="https://www.instagram.com/autoelektronikasekulic/" target="_blank" rel="noopener">Radovi na Instagramu</a>
+        </div>
+        <a class="rating" href="https://www.google.com/maps/search/?api=1&amp;query=Auto+elektrika+Sekuli%C4%87+Janka+Lisjaka+75+Kalu%C4%91erica" target="_blank" rel="noopener" aria-label="Ocena 4,9 od 5 na Google mapama, 166 recenzija">
+          <span class="rating__num" data-rating="4.9">4,9</span>
+          <span class="rating__side">
+            <span class="rating__stars" aria-hidden="true"><span class="rs" style="--f:100%"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="rs__on" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span><span class="rs" style="--f:100%"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="rs__on" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span><span class="rs" style="--f:100%"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="rs__on" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span><span class="rs" style="--f:100%"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="rs__on" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span><span class="rs" style="--f:90%"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="rs__on" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></span><span class="rating__shine"></span></span>
+            <span class="rating__text"><strong><span data-count="166">166</span> recenzija</strong> na Google mapama</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="gallery-sec section" id="galerija" aria-labelledby="galerija-naslov">
+      <div class="wrap">
+        <header class="gallery-head">
+          <div class="section__head">
+            <h2 class="h2" id="galerija-naslov">Galerija<span class="h2__rule" aria-hidden="true"></span></h2>
+            <p class="section__note">Radionica i automobili koji su bili kod nas.<br>Izaberite rad sa liste ili kliknite na sliku da je uvećate.</p>
+          </div>
+        </header>
+        <div class="showcase" data-showcase>
+          <div class="sc-stage">
+            <figure class="sc-slide is-active" data-slide>
+              <picture>
+                <source type="image/webp" srcset="img/radionica-porsche-640.webp 640w, img/radionica-porsche-1200.webp 1200w" sizes="(min-width: 960px) 58vw, 100vw">
+                <img src="img/radionica-porsche-1200.jpg" srcset="img/radionica-porsche-640.jpg 640w, img/radionica-porsche-1200.jpg 1200w" sizes="(min-width: 960px) 58vw, 100vw" alt="Dva Porschea na dizalicama u radionici" loading="lazy" decoding="async">
+              </picture>
+            </figure>
+            <figure class="sc-slide" data-slide>
+              <picture>
+                <source type="image/webp" srcset="img/radionica-bmw-peugeot-640.webp 640w, img/radionica-bmw-peugeot-1200.webp 1200w" sizes="(min-width: 960px) 58vw, 100vw">
+                <img src="img/radionica-bmw-peugeot-1200.jpg" srcset="img/radionica-bmw-peugeot-640.jpg 640w, img/radionica-bmw-peugeot-1200.jpg 1200w" sizes="(min-width: 960px) 58vw, 100vw" alt="BMW i beli Peugeot u radionici" loading="lazy" decoding="async">
+              </picture>
+            </figure>
+            <figure class="sc-slide" data-slide>
+              <picture>
+                <source type="image/webp" srcset="img/bmw-dijagnostika-enterijer-640.webp 640w, img/bmw-dijagnostika-enterijer-1200.webp 1200w" sizes="(min-width: 960px) 58vw, 100vw">
+                <img src="img/bmw-dijagnostika-enterijer-1200.jpg" srcset="img/bmw-dijagnostika-enterijer-640.jpg 640w, img/bmw-dijagnostika-enterijer-1200.jpg 1200w" sizes="(min-width: 960px) 58vw, 100vw" alt="Rastavljena konzola BMW-a sa novim multimedijalnim ekranom" loading="lazy" decoding="async">
+              </picture>
+            </figure>
+            <figure class="sc-slide" data-slide>
+              <picture>
+                <source type="image/webp" srcset="img/audi-a8-enterijer-640.webp 640w, img/audi-a8-enterijer-1200.webp 1200w" sizes="(min-width: 960px) 58vw, 100vw">
+                <img src="img/audi-a8-enterijer-1200.jpg" srcset="img/audi-a8-enterijer-640.jpg 640w, img/audi-a8-enterijer-1200.jpg 1200w" sizes="(min-width: 960px) 58vw, 100vw" alt="Unutrašnjost Audija A8, volan i digitalna tabla" loading="lazy" decoding="async">
+              </picture>
+            </figure>
+            <figure class="sc-slide" data-slide>
+              <picture>
+                <source type="image/webp" srcset="img/mercedes-prednji-deo-640.webp 640w, img/mercedes-prednji-deo-1200.webp 1200w" sizes="(min-width: 960px) 58vw, 100vw">
+                <img src="img/mercedes-prednji-deo-1200.jpg" srcset="img/mercedes-prednji-deo-640.jpg 640w, img/mercedes-prednji-deo-1200.jpg 1200w" sizes="(min-width: 960px) 58vw, 100vw" alt="Mercedes sa skinutim prednjim delom na dizalici" loading="lazy" decoding="async">
+              </picture>
+            </figure>
+            <figure class="sc-slide" data-slide>
+              <picture>
+                <source type="image/webp" srcset="img/dvoriste-ulaz-640.webp 640w, img/dvoriste-ulaz-1200.webp 1200w" sizes="(min-width: 960px) 58vw, 100vw">
+                <img src="img/dvoriste-ulaz-1200.jpg" srcset="img/dvoriste-ulaz-640.jpg 640w, img/dvoriste-ulaz-1200.jpg 1200w" sizes="(min-width: 960px) 58vw, 100vw" alt="Dvorište ispred radionice sa parkiranim automobilima" loading="lazy" decoding="async">
+              </picture>
+            </figure>
+            <figure class="sc-slide" data-slide>
+              <picture>
+                <source type="image/webp" srcset="img/fasada-640.webp 640w, img/fasada-1200.webp 1200w" sizes="(min-width: 960px) 58vw, 100vw">
+                <img src="img/fasada-1200.jpg" srcset="img/fasada-640.jpg 640w, img/fasada-1200.jpg 1200w" sizes="(min-width: 960px) 58vw, 100vw" alt="Ulaz u servis sa tablom Sekulić iznad roletne" loading="lazy" decoding="async">
+              </picture>
+            </figure>
+            <figure class="sc-slide" data-slide>
+              <picture>
+                <source type="image/webp" srcset="img/dizalica-opel-640.webp 640w, img/dizalica-opel-1200.webp 1200w" sizes="(min-width: 960px) 58vw, 100vw">
+                <img src="img/dizalica-opel-1200.jpg" srcset="img/dizalica-opel-640.jpg 640w, img/dizalica-opel-1200.jpg 1200w" sizes="(min-width: 960px) 58vw, 100vw" alt="Vozilo na dizalici, ispod njega žuti Opel Adam" loading="lazy" decoding="async">
+              </picture>
+            </figure>
+            <div class="sc-hud" aria-hidden="true">
+              <span class="sc-count"><span data-sc-cur>01</span><span class="sc-total"> / 08</span></span>
+              <span class="sc-progress"><span data-sc-bar></span></span>
+            </div>
+            <button class="sc-zoom" type="button" data-sc-zoom>Uvećaj sliku</button>
+          </div>
+          <ol class="sc-list" aria-label="Izaberite sliku">
+            <li>
+              <button class="sc-item is-active" type="button" aria-label="Radionica, pogled od ulaza" data-i="0" data-full="img/radionica-porsche-1200.jpg" data-caption="Radionica, pogled od ulaza" aria-pressed="true">
+                <img class="sc-thumb" src="img/radionica-porsche-640.jpg" alt="" loading="lazy" decoding="async">
+                <span class="sc-num">01</span>
+              </button>
+            </li>
+            <li>
+              <button class="sc-item" type="button" aria-label="BMW i Peugeot u radu" data-i="1" data-full="img/radionica-bmw-peugeot-1200.jpg" data-caption="BMW i Peugeot u radu" aria-pressed="false">
+                <img class="sc-thumb" src="img/radionica-bmw-peugeot-640.jpg" alt="" loading="lazy" decoding="async">
+                <span class="sc-num">02</span>
+              </button>
+            </li>
+            <li>
+              <button class="sc-item" type="button" aria-label="Ugradnja multimedije, BMW" data-i="2" data-full="img/bmw-dijagnostika-enterijer-1200.jpg" data-caption="Ugradnja multimedije, BMW" aria-pressed="false">
+                <img class="sc-thumb" src="img/bmw-dijagnostika-enterijer-640.jpg" alt="" loading="lazy" decoding="async">
+                <span class="sc-num">03</span>
+              </button>
+            </li>
+            <li>
+              <button class="sc-item" type="button" aria-label="Audi A8, enterijer" data-i="3" data-full="img/audi-a8-enterijer-1200.jpg" data-caption="Audi A8, enterijer" aria-pressed="false">
+                <img class="sc-thumb" src="img/audi-a8-enterijer-640.jpg" alt="" loading="lazy" decoding="async">
+                <span class="sc-num">04</span>
+              </button>
+            </li>
+            <li>
+              <button class="sc-item" type="button" aria-label="Mercedes, rastavljen prednji deo" data-i="4" data-full="img/mercedes-prednji-deo-1200.jpg" data-caption="Mercedes, rastavljen prednji deo" aria-pressed="false">
+                <img class="sc-thumb" src="img/mercedes-prednji-deo-640.jpg" alt="" loading="lazy" decoding="async">
+                <span class="sc-num">05</span>
+              </button>
+            </li>
+            <li>
+              <button class="sc-item" type="button" aria-label="Dvorište ispred radionice" data-i="5" data-full="img/dvoriste-ulaz-1200.jpg" data-caption="Dvorište ispred radionice" aria-pressed="false">
+                <img class="sc-thumb" src="img/dvoriste-ulaz-640.jpg" alt="" loading="lazy" decoding="async">
+                <span class="sc-num">06</span>
+              </button>
+            </li>
+            <li>
+              <button class="sc-item" type="button" aria-label="Ulaz sa ulice" data-i="6" data-full="img/fasada-1200.jpg" data-caption="Ulaz sa ulice" aria-pressed="false">
+                <img class="sc-thumb" src="img/fasada-640.jpg" alt="" loading="lazy" decoding="async">
+                <span class="sc-num">07</span>
+              </button>
+            </li>
+            <li>
+              <button class="sc-item" type="button" aria-label="Dizalica i radni prostor" data-i="7" data-full="img/dizalica-opel-1200.jpg" data-caption="Dizalica i radni prostor" aria-pressed="false">
+                <img class="sc-thumb" src="img/dizalica-opel-640.jpg" alt="" loading="lazy" decoding="async">
+                <span class="sc-num">08</span>
+              </button>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <dialog class="lb" data-lightbox aria-label="Uvećana slika">
+      <figure class="lb__fig">
+        <img class="lb__img" alt="" data-lb-img>
+        <figcaption class="lb__cap"><span class="lb__num mono" data-lb-num></span></figcaption>
+      </figure>
+      <button class="lb__btn lb__prev" type="button" data-lb-prev aria-label="Prethodna slika">←</button>
+      <button class="lb__btn lb__next" type="button" data-lb-next aria-label="Sledeća slika">→</button>
+      <button class="lb__close" type="button" data-lb-close aria-label="Zatvori">Zatvori ✕</button>
+    </dialog>
+
+    <!-- PITANJA -->
+    <!-- NAPOMENA: odgovori označeni sa [potvrditi] čekaju vlasnika. -->
+    <section class="faq section" id="pitanja">
+      <div class="wrap faq__grid">
+        <header class="section__head">
+          <h2 class="h2">Česta pitanja<span class="h2__rule" aria-hidden="true"></span></h2>
+          <p class="section__note">Odgovori na ono što vozači najčešće pitaju pre nego što dovezu auto.</p>
+        </header>
+        <div class="faq__list">
+          <details>
+            <summary>Koliko traje dijagnostika?</summary>
+            <p><span class="ph">[potvrditi sa vlasnikom]</span></p>
+          </details>
+          <details>
+            <summary>Da li ugrađujete opremu koju sam sam kupio?</summary>
+            <p><span class="ph">[potvrditi sa vlasnikom]</span></p>
+          </details>
+          <details>
+            <summary>Da li dajete garanciju na popravku?</summary>
+            <p><span class="ph">[potvrditi sa vlasnikom]</span></p>
+          </details>
+          <details>
+            <summary>Šta ako auto ne može da upali i ne mogu da ga dovezem?</summary>
+            <p><span class="ph">[potvrditi sa vlasnikom]</span></p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- SAVETI -->
+    <section class="tips section" id="saveti">
+      <div class="wrap">
+        <header class="section__head">
+          <h2 class="h2">Saveti za vozače<span class="h2__rule" aria-hidden="true"></span></h2>
+        </header>
+        <div class="tips__grid">
+          <article class="tip tip--photo">
+            <picture>
+              <img src="img/lampica-akumulatora.jpg" width="708" height="708" alt="Upaljena crvena lampica akumulatora na instrument tabli" loading="lazy" decoding="async">
+            </picture>
+            <div class="tip__body">
+              <h3>Upalila se lampica akumulatora u vožnji</h3>
+              <p>Najčešće znači da alternator ne puni. Auto tada ide samo na akumulator i posle nekog vremena stane. Ne gasite motor daleko od kuće i javite nam se.</p>
+            </div>
+          </article>
+          <article class="tip">
+            <h3>Auto ujutru teško pali</h3>
+            <p>Uzrok je obično slab akumulator, loš kontakt na klemama ili anlaser. Prvo izmerimo akumulator, jer je to najbrža provera.</p>
+          </article>
+          <article class="tip">
+            <h3>Akumulator se prazni dok auto stoji</h3>
+            <p>Nešto troši struju i kad je auto zaključan. Često je to naknadno ugrađena oprema ili modul koji ne ide na spavanje.</p>
+          </article>
+          <article class="tip">
+            <h3>Dodatna oprema i instalacija</h3>
+            <p>Kamera ili multimedija povezana na prvi kabl koji se nađe zna da pravi greške. Oprema se vezuje preko osigurača i na pravo mesto.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAKT -->
+    <section class="contact section" id="kontakt">
+      <div class="wrap contact__grid">
+        <div class="contact__form">
+          <header class="section__head">
+            <h2 class="h2">Pošaljite upit<span class="h2__rule" aria-hidden="true"></span></h2>
+            <p class="section__note">Najbrže je telefonom. Ako ostavite upit, javićemo vam se na broj koji upišete.</p>
+          </header>
+
+          <!-- Formspree: zameniti [FORMSPREE_ID] ID-jem forme sa formspree.io -->
+          <form class="form" action="https://formspree.io/f/[FORMSPREE_ID]" method="POST" data-form>
+            <div class="form__row">
+              <label class="field">
+                <span>Ime</span>
+                <input id="f-ime" type="text" name="ime" autocomplete="name" required>
+              </label>
+              <label class="field">
+                <span>Telefon</span>
+                <input id="f-tel" type="tel" name="telefon" autocomplete="tel" inputmode="tel" required>
+              </label>
+            </div>
+            <label class="field">
+              <span>Vozilo <small>(marka, model, godište)</small></span>
+              <input id="f-vozilo" type="text" name="vozilo" placeholder="npr. Golf 7, 2015.">
+            </label>
+            <label class="field">
+              <span>Šta se dešava sa autom?</span>
+              <textarea id="f-opis" name="opis" rows="5" required></textarea>
+            </label>
+            <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <div class="form__foot">
+              <button class="btn btn--fx" type="submit">Pošaljite upit</button>
+              <p class="form__msg" role="status" aria-live="polite" data-form-msg></p>
+            </div>
+          </form>
+        </div>
+
+        <aside class="contact__info">
+          <a class="contact__phone" href="tel:+381645745064">064 574 5064</a>
+          <dl class="info">
+            <div><dt>Adresa</dt><dd>Janka Lisjaka 75, Kaluđerica</dd></div>
+            <div><dt>Pon – pet</dt><dd class="mono">09:00 – 17:00</dd></div>
+            <div><dt>Sub – ned</dt><dd class="mono">zatvoreno</dd></div>
+          </dl>
+          <div class="contact__map">
+            <iframe title="Mapa: Janka Lisjaka 75, Kaluđerica" src="https://www.google.com/maps?q=Janka+Lisjaka+75,+Kalu%C4%91erica&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+          <a class="link-arrow" href="https://www.google.com/maps/dir/?api=1&amp;destination=Janka+Lisjaka+75+Kalu%C4%91erica" target="_blank" rel="noopener">Putanja do servisa</a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__grid">
+      <div class="footer__brand">
+        <p class="brand__name">Sekulić</p>
+      </div>
+      <div>
+        <h2 class="footer__h">Adresa</h2>
+        <p>Janka Lisjaka 75<br>Kaluđerica, Beograd</p>
+      </div>
+      <div>
+        <h2 class="footer__h">Telefon</h2>
+        <p><a href="tel:+381645745064">064 574 5064</a></p>
+      </div>
+      <div>
+        <h2 class="footer__h">Radno vreme</h2>
+        <p><span class="nowrap">Pon–pet 09:00–17:00</span><br>Subota i nedelja zatvoreno</p>
+      </div>
+      <div>
+        <h2 class="footer__h">Mreže</h2>
+        <p><a href="https://www.instagram.com/autoelektronikasekulic/" target="_blank" rel="noopener">Instagram</a><br>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Auto+elektrika+Sekuli%C4%87+Janka+Lisjaka+75+Kalu%C4%91erica" target="_blank" rel="noopener">Google mape</a></p>
+      </div>
+    </div>
+    <div class="wrap footer__base">
+      <p class="footer__copy">© <span data-year>2026</span> Auto elektrika i elektronika Sekulić</p>
+    </div>
+    <p class="footer__credit" lang="en">Designed by Stefan Pajic</p>
+  </footer>
+
+  <a class="callbar" href="tel:+381645745064">Pozovite 064 574 5064</a>
+
+  <script>
+// Status „sada radimo“ po beogradskom vremenu
+(function () {
+  var el = document.querySelector('[data-status]');
+  if (!el) return;
+  var parts = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/Belgrade', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false
+  }).formatToParts(new Date());
+  var get = function (t) { return parts.find(function (p) { return p.type === t; }).value; };
+  var day = get('weekday');
+  var mins = parseInt(get('hour'), 10) * 60 + parseInt(get('minute'), 10);
+  var workday = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].indexOf(day) !== -1;
+  var open = workday && mins >= 9 * 60 && mins < 17 * 60;
+  var text = el.querySelector('.status__text');
+  if (open) {
+    el.classList.add('is-open');
+    text.textContent = 'Sada radimo · do 17:00';
+  } else {
+    text.textContent = 'Sada zatvoreno · pon–pet 09:00–17:00';
+  }
+})();
+
+// Blago pojavljivanje sekcija pri skrolu
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var items = document.querySelectorAll('.section__head, .services__feature, .prices__grid, .gallery, .faq__list, .tips__grid, .contact__info');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -10% 0px' });
+  items.forEach(function (el) { el.classList.add('reveal'); io.observe(el); });
+})();
+
+// Slanje forme preko Formspree-a bez napuštanja strane
+(function () {
+  var form = document.querySelector('[data-form]');
+  if (!form) return;
+  var msg = form.querySelector('[data-form-msg]');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = form.querySelector('button');
+    btn.disabled = true;
+    msg.className = 'form__msg';
+    msg.textContent = 'Šaljem…';
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+      .then(function (r) {
+        if (!r.ok) throw new Error();
+        form.reset();
+        msg.classList.add('is-ok');
+        msg.textContent = 'Hvala, upit je poslat. Javićemo vam se.';
+      })
+      .catch(function () {
+        msg.classList.add('is-err');
+        msg.textContent = 'Slanje nije uspelo. Pozovite nas na 064 574 5064.';
+      })
+      .finally(function () { btn.disabled = false; });
+  });
+})();
+
+// Hamburger meni
+(function () {
+  var btn = document.querySelector('[data-burger]');
+  var menu = document.querySelector('[data-mnav]');
+  if (!btn || !menu) return;
+  function set(open) {
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.setAttribute('aria-label', open ? 'Zatvori meni' : 'Otvori meni');
+    menu.classList.toggle('is-open', open);
+  }
+  btn.addEventListener('click', function () { set(btn.getAttribute('aria-expanded') !== 'true'); });
+  menu.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+})();
+
+// Traka za poziv: vidi se tek kad se stigne do kontakt forme
+(function () {
+  var bar = document.querySelector('.callbar');
+  var form = document.querySelector('[data-form]');
+  if (!bar || !form) return;
+  function check() {
+    bar.classList.toggle('is-away', form.getBoundingClientRect().top > window.innerHeight * 0.85);
+  }
+  check();
+  window.addEventListener('scroll', check, { passive: true });
+  window.addEventListener('resize', check);
+})();
+
+var y = document.querySelector('[data-year]');
+if (y) y.textContent = new Date().getFullYear();
+
+// Ocena: broj raste do 4,9, zvezdice se pale jedna po jedna, broj recenzija raste do 166
+(function () {
+  var box = document.querySelector('.rating');
+  var num = box && box.querySelector('[data-rating]');
+  if (!num || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var stars = box.querySelectorAll('.rs');
+  var count = box.querySelector('[data-count]');
+  var target = parseFloat(num.getAttribute('data-rating'));
+  var total = count ? parseInt(count.getAttribute('data-count'), 10) : 0;
+  function set(v, p) {
+    num.textContent = v.toFixed(1).replace('.', ',');
+    for (var i = 0; i < stars.length; i++) {
+      var f = Math.max(0, Math.min(1, v - i));
+      stars[i].style.setProperty('--f', (f * 100) + '%');
+      if (f > 0) stars[i].classList.add('is-lit');
+    }
+    if (count) count.textContent = Math.round(total * p);
+  }
+  set(0, 0);
+  box.classList.add('is-armed');
+  var io = new IntersectionObserver(function (en) {
+    if (!en[0].isIntersecting) return;
+    io.disconnect();
+    box.classList.add('is-play');
+    var t0 = null, DELAY = 350, DUR = 2200;
+    function step(t) {
+      if (t0 === null) t0 = t;
+      var p = Math.max(0, Math.min((t - t0 - DELAY) / DUR, 1));
+      var e = 1 - Math.pow(1 - p, 3);
+      set(target * e, e);
+      if (p < 1) requestAnimationFrame(step);
+      else box.classList.add('is-done');
+    }
+    requestAnimationFrame(step);
+  }, { threshold: 0.6 });
+  io.observe(box);
+})();
+
+// Galerija: velika slika + lista, automatska smena i uvećan prikaz
+(function () {
+  var root = document.querySelector('[data-showcase]');
+  if (!root) return;
+  var slides = root.querySelectorAll('[data-slide]');
+  var items = root.querySelectorAll('.sc-item');
+  var cur = root.querySelector('[data-sc-cur]');
+  var bar = root.querySelector('[data-sc-bar]');
+  var stage = root.querySelector('.sc-stage');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var TIME = 6000;
+  var index = 0;
+  var timer = null;
+  var paused = false;
+  var remaining = TIME;
+  var startedAt = 0;
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+
+  function go(i, user) {
+    index = (i + slides.length) % slides.length;
+    slides.forEach(function (sl, k) { sl.classList.toggle('is-active', k === index); });
+    items.forEach(function (it, k) {
+      var on = k === index;
+      it.classList.toggle('is-active', on);
+      it.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    // na telefonu pomeri listu da aktivna kartica bude vidljiva
+    var list = root.querySelector('.sc-list');
+    var active = items[index].parentNode;
+    if (list.scrollWidth > list.clientWidth) list.scrollTo({ left: active.offsetLeft - list.offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
+    cur.textContent = pad(index + 1);
+    restart();
+  }
+
+  function restart() {
+    clearTimeout(timer);
+    if (reduce) return;
+    bar.classList.remove('is-running'); void bar.offsetWidth;
+    bar.style.setProperty('--sc-time', TIME + 'ms');
+    bar.classList.add('is-running');
+    remaining = TIME; startedAt = Date.now();
+    if (!paused) timer = setTimeout(function () { go(index + 1); }, TIME);
+  }
+
+  items.forEach(function (it, k) { it.addEventListener('click', function () { go(k, true); }); });
+
+  stage.addEventListener('mouseenter', function () {
+    paused = true; clearTimeout(timer);
+    remaining -= Date.now() - startedAt;
+  });
+  stage.addEventListener('mouseleave', function () {
+    paused = false; startedAt = Date.now();
+    if (!reduce) timer = setTimeout(function () { go(index + 1); }, Math.max(remaining, 500));
+  });
+
+  // prevlačenje po velikoj slici na telefonu
+  var x0 = null, swiped = false;
+  stage.addEventListener('pointerdown', function (e) { x0 = e.clientX; swiped = false; });
+  stage.addEventListener('pointerup', function (e) {
+    if (x0 === null) return;
+    var dx = e.clientX - x0; x0 = null;
+    if (Math.abs(dx) > 50) { swiped = true; go(index + (dx < 0 ? 1 : -1), true); }
+  });
+
+  // uvećan prikaz
+  var lb = document.querySelector('[data-lightbox]');
+  var canZoom = lb && typeof lb.showModal === 'function';
+  var img, num, lbIndex = 0;
+  function show(i) {
+    lbIndex = (i + items.length) % items.length;
+    var it = items[lbIndex];
+    img.classList.remove('is-switching'); void img.offsetWidth; img.classList.add('is-switching');
+    img.src = it.getAttribute('data-full');
+    img.alt = slides[lbIndex].querySelector('img').alt;
+    num.textContent = pad(lbIndex + 1) + ' / ' + pad(items.length);
+  }
+  if (canZoom) {
+    img = lb.querySelector('[data-lb-img]');
+    num = lb.querySelector('[data-lb-num]');
+    function open() { paused = true; clearTimeout(timer); show(index); lb.showModal(); }
+    root.querySelector('[data-sc-zoom]').addEventListener('click', open);
+    stage.addEventListener('click', function (e) { if (!e.target.closest('[data-sc-zoom]') && !swiped) open(); });
+    lb.querySelector('[data-lb-prev]').addEventListener('click', function () { show(lbIndex - 1); });
+    lb.querySelector('[data-lb-next]').addEventListener('click', function () { show(lbIndex + 1); });
+    lb.querySelector('[data-lb-close]').addEventListener('click', function () { lb.close(); });
+    lb.addEventListener('click', function (e) { if (e.target === lb) lb.close(); });
+    lb.addEventListener('close', function () { paused = false; go(lbIndex); });
+    lb.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowLeft') show(lbIndex - 1);
+      if (e.key === 'ArrowRight') show(lbIndex + 1);
+    });
+    var lx = null;
+    lb.addEventListener('pointerdown', function (e) { lx = e.clientX; });
+    lb.addEventListener('pointerup', function (e) {
+      if (lx === null) return;
+      var dx = e.clientX - lx; lx = null;
+      if (Math.abs(dx) > 50) show(lbIndex + (dx < 0 ? 1 : -1));
+    });
+  }
+
+  // kreni tek kad se galerija pojavi na ekranu
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (en) {
+      if (en[0].isIntersecting) { restart(); io.disconnect(); }
+    }, { threshold: 0.3 });
+    io.observe(root);
+  } else { restart(); }
+})();
+
+</script>
+</body>
+</html>
